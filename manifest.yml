@@ -1,0 +1,14 @@
+---
+applications:
+- name: nlu-doc-viewer
+  path: .
+  command: npm start
+  memory: 256M
+  disk_quota: 512M
+  env:
+    NODE_ENV: production
+    NATURAL_LANGUAGE_CUSTOM_MODEL: 10:cba97b5a-575c-4c64-977a-923b3b43b319
+    NATURAL_LANGUAGE_URL: https://gateway.watsonplatform.net/natural-language-understanding/api
+    NATURAL_LANGUAGE_USERNAME: f42be6ef-cc87-4525-8bb3-04b9048cf8a4
+    NATURAL_LANGUAGE_PASSWORD: iHzab2ROlxA7
+    NATURAL_LANGUAGE_VERSION: 2017-02-27

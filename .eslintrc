@@ -1,0 +1,12 @@
+{
+  "extends": ["standard"],
+  "rules": {
+    "max-len": "off"
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "globals": {
+  }
+}

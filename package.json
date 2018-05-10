@@ -1,0 +1,70 @@
+{
+  "name": "nlu-doc-viewer",
+  "version": "1.2.0",
+  "description": "Parse and highlight a contract file",
+  "main": "./src/server/server.js",
+  "watch": {
+    "build-client": "client/js/*.*",
+    "build-css": "client/css/*.*",
+    "build-img": "client/img/*.*",
+    "build-core": "client/*.*"
+  },
+  "scripts": {
+    "browsersync": "browser-sync start --proxy 'localhost:3000' --port 3001 --files 'public/**/*.*'",
+    "develop": "npm run build && concurrently \"npm run watch:server\" \"npm-watch\" \"sleep 3 && npm run browsersync\"",
+    "lint": "eslint .",
+    "lint-fix": "eslint . --fix",
+    "start": "npm run build && node .",
+    "serve": "npm run build && concurrently \"node .\" \"sleep 1 && opener http://localhost:3000\"",
+    "watch:server": "nodemon --watch ./src",
+    "init": "npm install",
+    "develop-old": "concurrently \"npm run watch:server\" \"sleep 5 && npm run browsersync\"",
+    "build-mkdir": "mkdirp public/css public/js public/img",
+    "build-client-prod": "browserify client/js/index.js -o client/js/bundle.js && minify --output public/js/bundle.js client/js/bundle.js && del client/js/bundle.js",
+    "build-client": "browserify client/js/index.js -o public/js/bundle.js",
+    "build-css": "cp node_modules/dropzone/dist/min/dropzone.min.css client/css/annotate.css public/css",
+    "build-img": "cp -r client/img public",
+    "build-core": "cp client/*.html client/*.ico public",
+    "build": "npm run build-mkdir && npm run build-client && npm run build-css && npm run build-css && npm run build-img && npm run build-core"
+  },
+  "engines": {
+    "node": "^7.6.0"
+  },
+  "author": "Paul Thoresen",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "browser-sync": "^2.24.4",
+    "browserify": "^16.2.2",
+    "cfenv": "^1.1.0",
+    "concurrently": "^3.5.1",
+    "cp-cli": "^1.1.2",
+    "del-cli": "^1.1.0",
+    "dotenv": "^4.0.0",
+    "dropzone": "^5.4.0",
+    "express": "^4.16.3",
+    "glob": "^7.1.2",
+    "jquery": "^3.3.1",
+    "mammoth": "^1.4.5",
+    "minifier": "^0.8.1",
+    "mkdirp": "^0.5.1",
+    "multer": "^1.2.0",
+    "npm-watch": "^0.3.0",
+    "opener": "^1.4.3",
+    "passport": "^0.3.2",
+    "passport-http": "^0.3.0",
+    "request": "^2.85.0",
+    "watson-developer-cloud": "^3.4.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-react": "^7.7.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "nodemon": "^1.17.4",
+    "standard": "^10.0.3"
+  }
+}

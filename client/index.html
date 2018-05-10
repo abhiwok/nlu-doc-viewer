@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Watson NLU Document Viewer</title>
+    <meta name="og:title" property="og:title" content="Watson NLU Document Viewer" />
+    <meta name="og:description" property="og:description" content='See all the entities of any document using Watson NLU.' />
+    <link rel='shortcut icon' href='favicon.ico' type='image/x-icon' />
+    <link rel="stylesheet" href="css/dropzone.min.css" />
+    <link rel="stylesheet" href="css/annotate.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <p>Watson NLU Document Viewer</p>
+    </div>
+    <div class="sidenav">
+      <div class="folder"><img class="folder-img" src="img/folder.svg"><span>Folder</span></div>
+      <ul id="file-list">
+      </ul>
+      <div id="example-dropzone" class='example-dropzone'><p id="dropzone-text">Drop File Here [use a .docx or .txt file]</p></div>
+    </div>
+    <div class="main">
+      <div id='results'></div>
+      <div id='empty'><strong>CLICK ON A FILE TO VIEW</strong></div>
+    </div>
+    <script src="js/bundle.js"> </script>
+  </body>
+</html>
